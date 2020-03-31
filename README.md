@@ -55,7 +55,7 @@ A successful response looks like this:
 {"code":200,"msg":"success","data":{"id":1,"name":"test"}}
 
 # create space
-{"code":200,"msg":"success","data":{"id":2,"name":"test","version":2,"db_id":1,"enabled":true,"partitions":[{"id":3,"space_id":2,"db_id":1,"partition_slot":0,"replicas":[1]},{"id":4,"space_id":2,"db_id":1,"partition_slot":2147483647,"replicas":[1]}],"partition_num":2,"replica_num":1,"properties":{ "url": { "type": "keyword", "index":"true"}, "feature1": { "type": "vector", "dimension":512, "format": "normalization" }},"engine":{"name":"gamma","index_size":100000,"max_size":100000,"nprobe":-1,"metric_type":"InnerProduct","ncentroids":-1,"nsubvector":-1,"nbits_per_idx":-1}}}
+{"code":200,"msg":"success","data":{"id":2,"name":"test","version":2,"db_id":1,"enabled":true,"partitions":[{"id":3,"space_id":2,"db_id":1,"partition_slot":0,"replicas":[1]},{"id":4,"space_id":2,"db_id":1,"partition_slot":2147483647,"replicas":[1]}],"partition_num":2,"replica_num":1,"properties":{ "url": { "type": "keyword", "index":true}, "feature1": { "type": "vector", "dimension":512, "format": "normalization" }},"engine":{"name":"gamma","index_size":100000,"max_size":100000,"nprobe":-1,"metric_type":"InnerProduct","ncentroids":-1,"nsubvector":-1,"nbits_per_idx":-1}}}
 ```
 
 
