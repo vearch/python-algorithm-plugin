@@ -1,6 +1,6 @@
 # Quickstart
 
-*This  Quickstart suit for those who want to search something but do not know how to extract image or text to features. Others refer to [APILowLevel.md](https://github.com/vearch/vearch/blob/master/docs/APILowLevel.md) .* 
+*This  Quickstart suit for those who want to search something but do not know how to extract image or text to features. Others refer to [APILowLevel.md](APILowLevel.md) .* 
 
 Vearch is aimed to build a simple and fast image retrieval system. Through this system, a image retrieval system could be easily built, including image object detection,  feature extraction and similarity search. This quickstart demonstrates how to use it.
 
@@ -14,9 +14,9 @@ Vearch is aimed to build a simple and fast image retrieval system. Through this 
 
  For testing you can download  [coco data](https://pjreddie.com/media/files/val2014.zip), or  use the images in images folder we choose from [coco data](https://pjreddie.com/media/files/val2014.zip). For more details, you can refer test folder in `plugin.src`
 
-## Different from [APILowLevel.md](https://github.com/vearch/vearch/blob/master/docs/APILowLevel.md)
+## Different from APILowLevel.md
 
-This API is similar to [APILowLevel.md](https://github.com/vearch/vearch/blob/master/docs/APILowLevel.md),  and plugin can perfectly adapt to it, Any method defined in [APILowLevel.md](https://github.com/vearch/vearch/blob/master/docs/APILowLevel.md) can be used by plugin. However, if vector has existed, the [APILowLevel.md](https://github.com/vearch/vearch/blob/master/docs/APILowLevel.md) is the fisrt choice.
+This API is similar to [APILowLevel.md](https://github.com/vearch/vearch/blob/master/docs/APILowLevel.md),  and plugin can perfectly adapt to it, Any method defined in APILowLevel.md can be used by plugin. However, if vector has existed, the APILowLevel.md is the fisrt choice.
 
 The difference:
 
@@ -122,19 +122,6 @@ curl -XDELETE http://127.0.0.1:4101/test/test/AWz2IFBSJG6WicwQVTog
 {"_index":"test","_type":"test","_id":"AW63W9I4JG6WicwQX_RC","status":200,"_version":0,"_shards":{"total":0,"successful":1,"failed":0},"result":"unknow","_seq_no":1,"_primary_term":1}
 ```
 
-
-
-## Update record by ID
-
-Use the following `curl` command to update a record by ID
-
-```shell
-# request
-curl -XPOST -H "content-type: application/json"  -d '{"doc": {"url":"1"}}' http://127.0.0.1:4101/test/test/AW63W9I4JG6WicwQX_RC/_update
-
-# response
-{"_index":"test","_type":"test","_id":"AW63W9I4JG6WicwQX_RC","status":200,"_version":1,"_shards":{"total":0,"successful":1,"failed":0},"result":"updated","_seq_no":1,"_primary_term":1}
-```
 
 
 
