@@ -17,7 +17,7 @@ import numpy as np
 from keras_bert import extract_embeddings,get_checkpoint_paths,load_trained_model_from_checkpoint, load_vocabulary
 
 
-MODEL_URL = 'https://storage.googleapis.com/hfl-rc/chinese-bert/chinese_wwm_L-12_H-768_A-12.zip'
+MODEL_URL = 'https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip'
 
 
 class Text(object):
@@ -28,7 +28,7 @@ class Text(object):
             if not os.path.exists(model_dir):
                 os.makedirs(model_dir)
             subprocess.run(
-                f"wget -P {model_dir} {MODEL_URL} && cd {model_dir} && unzip chinese_wwm_L-12_H-768_A-12.zip",
+                f"wget -P {model_dir} {MODEL_URL} && cd {model_dir} && unzip chinese_L-12_H-768_A-12.zip",
                 shell=True)
 
         paths = get_checkpoint_paths(model_path)

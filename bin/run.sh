@@ -2,7 +2,8 @@
 
 path=`pwd`
 cd $path/src
-pip install -r requirements.txt
+# pip install -r requirements.txt
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 run_image_retrieval(){
     python main.py --model_name=image_retrieval

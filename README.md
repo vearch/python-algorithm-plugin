@@ -45,7 +45,11 @@ Before inserting and searching, a database and space should be creating firstly.
 curl -XPUT -H "content-type:application/json" -d '{"name": "test"}' http://127.0.0.1:4101/db/_create
 
 # create a space in test db which name test too.
-curl -XPUT -H "content-type: application/json" -d' { "name": "test", "dynamic_schema": "strict", "partition_num": 2, "replica_num": 1, "engine": {"name":"gamma","metric_type": "InnerProduct"}, "properties": { "url": { "type": "keyword", "index": true}, "feature1": { "type": "vector", "dimension":512, "format": "normalization" }}} ' http://127.0.0.1:4101/space/test/_create
+## for image
+curl -XPUT -H "content-type: application/json" -d '{"name": "test", "partition_num": 1, "replica_num": 1, "engine": {"name": "gamma", "index_size": 70000, "max_size": 10000000, "id_type": "String", "retrieval_type": "IVFPQ", "retrieval_param": { "metric_type": "InnerProduct", "ncentroids": 256, "nsubvector": 32  } }, "properties": {  "url": { "type": "keyword", "index": true }, "feature1": { "type": "vector", "dimension":512, "format": "normalization"  } }}  }' http://127.0.0.1:4101/space/test/_create
+
+## for text dimension is 768
+curl -XPUT -H "content-type: application/json" -d '{"name": "test", "partition_num": 1, "replica_num": 1, "engine": {"name": "gamma", "index_size": 70000, "max_size": 10000000, "id_type": "String", "retrieval_type": "IVFPQ", "retrieval_param": { "metric_type": "InnerProduct", "ncentroids": 256, "nsubvector": 32  } }, "properties": {  "text": { "type": "keyword", "index": true }, "feature1": { "type": "vector", "dimension":768, "format": "normalization"  } }}  }' http://127.0.0.1:4101/space/test/_create
 ```
 
 A successful response looks like this:
@@ -86,8 +90,12 @@ The method of single import demo:
 
 ```shell
 # single insert
+
+## image
 curl -XPOST -H "content-type: application/json"  -d' { "url": "../images/COCO_val2014_000000123599.jpg", "feature1":{"feature":"../images/COCO_val2014_000000123599.jpg"}} ' http://127.0.0.1:4101/test/test/AW63W9I4JG6WicwQX_RC
 
+## text
+curl -XPOST -H "content-type: application/json"  -d' { "text": "感谢大家", "feature1":{"feature":"感谢大家"} } ' http://127.0.0.1:4101/test/test/AW63W9I4JG6WicwQX_RC'
 ```
 
 A successful response like this:
