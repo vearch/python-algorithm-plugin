@@ -1,6 +1,7 @@
 FROM centos/python-36-centos7
 USER root
 RUN yum install -y libXrender-0.9.10-1.el7.x86_64
+RUN pip install --upgrade pip
 WORKDIR /app
 COPY . .
 WORKDIR /app/src
