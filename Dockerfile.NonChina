@@ -5,8 +5,8 @@ RUN pip install --upgrade pip
 WORKDIR /app
 COPY . .
 WORKDIR /app/src
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt \
-    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple torch torchvision \
+RUN pip install -r requirements.txt \
+    && pip install torch torchvision \
     && wget -P /opt/app-root/src/.cache/torch/checkpoints/ https://download.pytorch.org/models/vgg16-397923af.pth \
     && wget -P /app/model/ -c https://pjreddie.com/media/files/yolov3.weights
 CMD ["python", "main.py", "--model_name=image_retrieval"]
