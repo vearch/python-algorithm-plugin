@@ -143,6 +143,11 @@ Searching by an image stored in images folders or image URI on Internet, using t
 curl -H "content-type: application/json" -XPOST -d '{ "query": { "sum": [{"feature":"../images/COCO_val2014_000000123599.jpg", "field":"feature1"}]}}' http://127.0.0.1:4101/test/test/_search
 
 ```
+**Note**：If no index is created, you need add a parameter in request to enforce brute force search rather than index search, eg:
+```shell
+curl -H "content-type: application/json" -XPOST -d '{ "query": { "sum": [{"feature":"../images/COCO_val2014_000000123599.jpg", "field":"feature1"}]},"is_brute_search":1}' http://127.0.0.1:4101/test/test/_search
+
+```
 
 A successful response looks like this:
 
